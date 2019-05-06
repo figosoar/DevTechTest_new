@@ -86,3 +86,41 @@ editing customer details for notes
 
 ---localhost:8080/gaofei/rest/v1/user/note/save
 
+
+# DataBase Fields
+
+dtt_admin
+
+--- Can be ignored, since I don't show the login module on the page.
+
+dtt-userinfo
+
+--- Store the basic information associated with customer, including ID (Unique, main key), UserId, Name, contact details (Email, telephone), Status, Creation/visit data and time. 
+
+--- Since a customer can have any number of notes associated with them, the notes are stored separately in another database.
+
+dtt-usernote --- save the changes(add or edit) of customer notes
+
+--- Store ID, UserId, Notes, Notes Creation time and others useless.
+
+# Java Class
+
+The project use a Java multi-tier architecture principle. 
+
+
+--- Class for Basic information like Status
+
+Controller -        UserInfoController
+
+Service    -        IUserInfoService
+
+Dao        -        UserInfoRepo
+
+
+--- Class for Notes
+
+Controller -        UserNoteController
+
+Service    -        IUserNoteService
+
+Dao        -        UserNoteRepo
